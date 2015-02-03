@@ -1,3 +1,5 @@
+require 'semver'
+
 Facter.add(:megaraid_fw_version) do
   megacli = Facter.value(:megacli)
   version_commands = ["#{megacli} -Version -Ctrl -aALL -NoLog",

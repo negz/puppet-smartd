@@ -7,6 +7,8 @@ Facter.add(:megacli_version) do
     next if megacli.nil?
 
     version = nil
+    # This is a bit hacky, but we need to try different commands to ascertain
+    # the version of the megacli binary.
     version_commands.each do |cmd|
       output = Facter::Util::Resolution.exec(cmd)
       next if output.nil?
